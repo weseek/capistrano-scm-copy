@@ -17,7 +17,7 @@ namespace :rsync do
       execute :mkdir, "-p", release_path
 
       # Upload the archive, extract it and finally remove the tmp_file
-      execute :rsync, "-ar", exclude_args, release_path
+      execute :rsync, "-ar", exclude_args, repo_path, release_path
     end
   end
 
