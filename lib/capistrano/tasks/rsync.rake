@@ -10,7 +10,7 @@ namespace :rsync do
   rsync_verbose = fetch(:rsync_verbose, true) ? "v" : ""
 
   desc "Deploy to release_path"
-  task :deploy => archive_name do |t|
+  task :deploy do
     on roles(rsync_roles) do
       # Make sure the release directory exists
       puts "==> release_path: #{release_path} is created on #{rsync_roles} roles <=="
