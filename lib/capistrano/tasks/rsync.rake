@@ -11,7 +11,7 @@ namespace :rsync do
 
   desc "Deploy to release_path"
   task :deploy do
-    on roles(rsync_roles) do
+    on roles(rsync_roles) do |server|
       # Make sure the release directory exists
       puts "==> release_path: #{release_path} is created on #{rsync_roles} roles <=="
       execute :mkdir, "-p", release_path
