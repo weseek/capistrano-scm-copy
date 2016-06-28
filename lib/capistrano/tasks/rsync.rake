@@ -16,9 +16,9 @@ namespace :rsync do
       puts "==> release_path: #{release_path} is created on #{rsync_roles} roles <=="
       execute :mkdir, "-p", release_path
 
-      puts "==> rsync: #{release_path} command: rsync -ar -e ssh ./ #{server}:#{release_path} #{*exclude_args} <=="
+      puts "==> rsync: #{release_path} command: rsync -ar -e ssh ./ #{server}:#{release_path} #{exclude_args.join(' ')} <=="
       # Upload the archive, extract it and finally remove the tmp_file
-      execute :rsync, "-ar", "-e", "ssh", "./", "#{server}:#{release_path}", *exclude_args
+      execute :rsync, "-ar", "-e", "ssh", "./", "#{server}:#{release_path}", exclude_args.join(' ')
     end
   end
 
