@@ -19,7 +19,7 @@ namespace :rsync do
 
       puts "==> rsync: #{release_path} command: rsync -ar -e ssh #{rsync_from} #{server}:#{release_path} #{exclude_args.join(' ')} <=="
       # Upload the archive, extract it and finally remove the tmp_file
-      execute :rsync, "-ar", "-e", "ssh", "./", "#{server}:#{release_path}", exclude_args.join(' ')
+      execute :rsync, "-ar", "-e", "ssh", rsync_from, "#{server}:#{release_path}", exclude_args.join(' ')
     end
   end
 
